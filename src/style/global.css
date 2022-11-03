@@ -1,0 +1,55 @@
+.app-container {
+  background-color: #ffffff;
+  width: 450px;
+  height: 700px;
+  border: 1px solid #f1f1f1f1;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-container {
+  width: 90%;
+  height: 20%;
+  border-bottom: lightgrey 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container > button {
+  margin: 0 15px;
+  background-color: #9b59b6;
+  color: #ffffff;
+  border: none;
+  width: 60px;
+  height: 30px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.form-container > button:hover {
+  background-color: #8e44ad;
+}
+
+.todo-list-container {
+  width: 100%;
+  height: 80%;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todo-item-container {
+  width: 85%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-item-container:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
