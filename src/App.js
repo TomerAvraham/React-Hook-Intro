@@ -20,10 +20,17 @@ const App = () => {
     setTodoList((prevTodoList) => [...prevTodoList, newTodo]);
   };
 
+  const toggleAllTodoCompleted = (status) => {
+    const newTodoList = todoList.map((todo) => ({
+      ...todo,
+      isCompleted: status,
+    }));
+    setTodoList(newTodoList);
+  };
+
   const toggleTodoCompleted = (id) => {
     const todoListCopy = [...todoList];
     const indexByTodoId = todoListCopy.findIndex((todo) => todo.id === id);
-    console.log(indexByTodoId);
     const targetTodo = todoListCopy[indexByTodoId];
     todoListCopy[indexByTodoId] = {
       ...targetTodo,
@@ -32,10 +39,21 @@ const App = () => {
     setTodoList(todoListCopy);
   };
 
+  const deleteTodoById = (id) => {
+    setTodoList((prev) => prev.filter((todo) => todo.id !== id));
+  };
+
   return (
     <div className="app-container">
-      <Form addTodoToTodoList={addTodoToTodoList} />
-      <TodoList list={todoList} toggleTodo={toggleTodoCompleted} />
+      <Form
+        addTodoToTodoList={addTodoToTodoList}
+        toggleAllTodo={toggleAllTodoCompleted}
+      />
+      <TodoList
+        list={todoList}
+        toggleTodo={toggleTodoCompleted}
+        deleteTodo={deleteTodoById}
+      />
     </div>
   );
 };
