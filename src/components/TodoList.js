@@ -1,7 +1,7 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 
-const TodoList = ({ list, toggleTodo, deleteTodo }) => {
+const TodoList = ({ list, toggleTodo, deleteTodo, editTodo }) => {
   return (
     <div className="todo-list-container">
       {list.map((todo) => (
@@ -10,6 +10,7 @@ const TodoList = ({ list, toggleTodo, deleteTodo }) => {
           key={todo.id}
           toggleTodo={toggleTodo}
           deleteTodo={deleteTodo}
+          editTodo={editTodo}
         />
       ))}
     </div>

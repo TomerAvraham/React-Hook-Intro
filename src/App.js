@@ -11,6 +11,17 @@ const App = () => {
     { id: uuid(), task: "Drink 2 bottles of Arak", isCompleted: false },
   ]);
 
+  const editTodoByIdAndTask = (id, task) => {
+    const todoListCopy = [...todoList];
+    const indexByTodoId = todoListCopy.findIndex((todo) => todo.id === id);
+    const todoToEdit = todoListCopy[indexByTodoId];
+    todoListCopy[indexByTodoId] = {
+      ...todoToEdit,
+      task,
+    };
+    setTodoList(todoListCopy);
+  };
+
   const addTodoToTodoList = (todo) => {
     const newTodo = {
       id: uuid(),
@@ -53,6 +64,7 @@ const App = () => {
         list={todoList}
         toggleTodo={toggleTodoCompleted}
         deleteTodo={deleteTodoById}
+        editTodo={editTodoByIdAndTask}
       />
     </div>
   );
